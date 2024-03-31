@@ -8,6 +8,7 @@ import HrLandingLayout from './users/hr/pages/HrLandingLayout';
 import HrHome from './users/hr/pages/HrHome';
 import AdminLandingLayout from './users/admin/pages/AdminLandingLayout';
 import AdminHome from './users/admin/pages/AdminHome';
+import StudentHome from './users/student/pages/StudentHome';
 
 
 
@@ -26,9 +27,10 @@ function App() {
           path="/Student"
           element={<StudentLandingLayout />}
         >
-          <Route path="/Student/" element={<Dashboard />} />
+        {/* <Route path="/Student/Home" element={<StudentHome/>} /> */}
           
         </Route>
+        <Route path="/Student/Home" element={<StudentHome/>} />
 
         {/* HR Links */}
         <Route path="/HR" 
@@ -55,3 +57,4 @@ function App() {
 }
 
 export default App;
+
