@@ -8,6 +8,7 @@ import HrLandingLayout from './users/hr/pages/HrLandingLayout';
 import HrHome from './users/hr/pages/HrHome';
 import AdminLandingLayout from './users/admin/pages/AdminLandingLayout';
 import AdminHome from './users/admin/pages/AdminHome';
+import Companies from './users/admin/pages/Companies';
 
 
 
@@ -43,12 +44,13 @@ function App() {
           element={<AdminLandingLayout/>}
         >
            <Route path="/Admin/" element={<AdminHome/>} />
+           <Route path="/Admin/Companies" element={<Companies/>} />
 
         </Route>
       </Routes>
       
       
-
+      
     </Router>
     </>
   );
