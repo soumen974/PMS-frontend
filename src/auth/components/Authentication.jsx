@@ -85,14 +85,7 @@ export default function Authentication(props) {
     
   };
 
-  const EmptyForm = () => {
-    setErrorMeg(false);
-    setJobpost({
-      usertype: "",  
-     password: ""
-    });
-
-    };
+ 
 
 
   return (
