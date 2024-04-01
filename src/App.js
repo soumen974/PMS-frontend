@@ -27,8 +27,7 @@ function App() {
           path="/Student"
           element={<StudentLandingLayout />}
         >
-        {/* <Route path="/Student/Home" element={<StudentHome/>} /> */}
-          
+        {/* <Route path="/Student/Home" element={<StudentHome/>} /> */}    
         </Route>
         <Route path="/Student/Home" element={<StudentHome/>} />
 
