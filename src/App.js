@@ -35,7 +35,7 @@ function App() {
         <Route path="/HR" 
           element={<HrLandingLayout/>}
         >
-          <Route path="/HR/" element={<HrHome />} />
+          <Route path="/HR/home" element={<HrHome />} />
           
         </Route>
 
