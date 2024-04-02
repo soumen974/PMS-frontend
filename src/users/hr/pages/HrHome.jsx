@@ -4,7 +4,7 @@ import JobPostComponentBox from '../components/JobPostComponentBox'
 export default function HrHome() {
   return (
     <>
-    make changes in home     
+    make changesin home     
     </>
   )
 }
