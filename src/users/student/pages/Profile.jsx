@@ -58,6 +58,7 @@ function ProfileDetailsSection() {
     ],
   ];
 
+  
   return (
     <section className="flex flex-col items-center px-6 md:px-16 pt-16 pb-6 mt-2 rounded-md border border-orange-300 border-solid max-md:px-5 max-md:max-w-full">
       <div className="flex flex-col md:flex-row gap-5">
