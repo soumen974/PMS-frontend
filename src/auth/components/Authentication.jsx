@@ -11,10 +11,7 @@ export default function Authentication(props) {
 
   const [Entry_Link,setEntry_Link]=useState('')
 
- 
-  // const  HandleFormSubmit=(e)=>{
-  //   e.preventDefault(); 
-  // }
+
 
   const [userAuthData, setUserAuthDatat] = useState({
     usertype: "",  
@@ -58,31 +55,6 @@ export default function Authentication(props) {
   const HandleForm = (e) => {
     e.preventDefault();
 
-    console.log(userAuthData);
-      fetch("http://localhost:8080/userentry", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(userAuthData)
-      })
-        .then(() => {
-          console.log("New user added");
-          setAddedMsg(true);
-          setErrorMeg(true);
-         
-
-          setTimeout(() => {
-             setErrorMeg(false);
-             setAddedMsg(false);
-          
-          }, 1000);
-    
-          
-    
-          EmptyForm();
-         
-        });
-    
-    
   };
 
  
