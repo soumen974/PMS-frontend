@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react'
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -14,9 +14,17 @@ export default function Section1() {
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 3000,
-        
-        
       };
+    
+      const [isLoading,setisLoading]=useState(false);
+  
+  
+  useEffect(() => {
+    setisLoading(true);
+    setTimeout(()=>{
+    setisLoading(false)
+    },400)
+}, [])
   return (
     <>
     
@@ -69,6 +77,18 @@ export default function Section1() {
       
       {/* Slider */}
       <div className='relative z-10'>
+      {
+                 isLoading?
+                 <div className=' px-[1.6rem] pt-[5.7rem]  overflow-hidden z- '>
+                 <div className=' p-[10rem] w-full  h-[35vw]  overflow-hidden z-10 bg-gray-200 text-white text-center text-2xl '>
+                 <div className="lds-ellipsis ">
+                    <div className='dark:bg-slate-900'></div>
+                    <div className='dark:bg-slate-900'></div>
+                    <div className='dark:bg-slate-900'></div>
+                    <div className='dark:bg-slate-900'></div>
+                </div>
+                 </div>
+               </div>                 :
         <div className=' p-6 pb-0 pt-[5.9rem] overflow-hidden z-10 '>
                 <Slider {...settings}>
                     <div >
@@ -82,8 +102,12 @@ export default function Section1() {
                     </div>
                 </Slider>
         </div>
+      }
+         
+
       </div>
     </div>
+
    
     
    
