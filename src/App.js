@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Routes, Link, Outlet } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Link, Outlet, BrowserRouter } from 'react-router-dom';
 import UserEntry from './auth/pages/UserEntry';
 import Login from './auth/pages/Login';
 import SignUp from './auth/pages/SignUp ';
@@ -9,13 +9,16 @@ import HrHome from './users/hr/pages/HrHome';
 import AdminLandingLayout from './users/admin/pages/AdminLandingLayout';
 import AdminHome from './users/admin/pages/AdminHome';
 import Companies from './users/admin/pages/Companies';
+import StudentHome from './users/student/pages/StudentHome';
+import Profile from './users/student/pages/Profile';
 
 
 
 function App() {
   return (
     <>
-   <Router>
+
+   <BrowserRouter>
       <Routes>
         {/* Entry Links */}
         <Route path="/" element={<UserEntry/>} />
@@ -27,9 +30,9 @@ function App() {
           path="/Student"
           element={<StudentLandingLayout />}
         >
-          <Route path="/Student/" element={<Dashboard />} />
-          
+        {/* <Route path="/Student/Home" element={<StudentHome/>} /> */}    
         </Route>
+        <Route path="/Student/Home" element={<StudentHome/>} />
 
         {/* HR Links */}
         <Route path="/HR" 
@@ -42,18 +45,22 @@ function App() {
         {/* Admin Links */}
         <Route path="/Admin" 
           element={<AdminLandingLayout/>}
-        >
+        />
            <Route path="/Admin/" element={<AdminHome/>} />
            <Route path="/Admin/Companies" element={<Companies/>} />
 
-        </Route>
+       
+        <Route path="/profile" element={<Profile/>}></Route>
+        
       </Routes>
       
       
       
-    </Router>
+    </BrowserRouter>
+    
     </>
   );
 }
 
 export default App;
+
