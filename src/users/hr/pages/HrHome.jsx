@@ -4,7 +4,9 @@ import JobPostComponentBox from '../components/JobPostComponentBox'
 export default function HrHome() {
   return (
     <>
-    make changes in home     
+       <div className='pr-[68rem]'>
+       
+      </div>    
     </>
   )
 }

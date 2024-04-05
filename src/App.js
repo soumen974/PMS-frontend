@@ -9,6 +9,7 @@ import HrHome from './users/hr/pages/HrHome';
 import AdminLandingLayout from './users/admin/pages/AdminLandingLayout';
 import AdminHome from './users/admin/pages/AdminHome';
 import Companies from './users/admin/pages/Companies';
+import JobPosting from './users/hr/pages/JobPosting';
 
 
 
@@ -36,6 +37,8 @@ function App() {
           element={<HrLandingLayout/>}
         >
           <Route path="/HR/home" element={<HrHome />} />
+          <Route path="/HR/jobposting" element={<JobPosting/>} />
+          
           
         </Route>
 
