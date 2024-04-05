@@ -8,7 +8,7 @@ export default function Nav() {
         <nav className=" border-red-800 border-t-[3px] bg-white drop-shadow-lg fixed w-full z-40 ">
             <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-2">
             <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
-                <img  src={CUTM_Logo} className="w-[8rem]" alt="Flowbite Logo" />
+                <img  src={CUTM_Logo} className="w-[8rem]" alt="" />
             </a>
             <div className="flex md:order-2 space-x-3 md:space-x-3 rtl:space-x-reverse">
                 <Link to={'/SignUp'}> <button type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded text-md px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Sign Up</button></Link>
