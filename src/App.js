@@ -10,6 +10,8 @@ import AdminLandingLayout from './users/admin/pages/AdminLandingLayout';
 import AdminHome from './users/admin/pages/AdminHome';
 import Companies from './users/admin/pages/Companies';
 import JobPosting from './users/hr/pages/JobPosting';
+import AccountHr from './users/hr/pages/AccountHr';
+import SettingHr from './users/hr/pages/SettingHr';
 
 
 
@@ -38,6 +40,8 @@ function App() {
         >
           <Route path="/HR/home" element={<HrHome />} />
           <Route path="/HR/jobposting" element={<JobPosting/>} />
+          <Route path="/HR/account" element={<AccountHr/>} />
+          <Route path="/HR/settings" element={<SettingHr/>} />
           
           
         </Route>

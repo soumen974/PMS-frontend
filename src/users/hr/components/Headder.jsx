@@ -1,4 +1,5 @@
 import React from 'react'
+import Avtar from './Avtar'
 
 export default function Headder() {
   return (
@@ -35,9 +36,8 @@ export default function Headder() {
                     <ul className="flex items-center gap-4 2xsm:gap-4">
                       <li>
                      </li>
-                        <li className='grid justify-items-stretch gap-0'>
-                            <div className='text-[1rem] justify-self-end dark:text-white'>Soumen</div>
-                            <div className='text-gray-500 font-light text-[0.8rem] justify-self-start dark:text-green-300 '>Company name</div>
+                        <li className='grid justify-items-stretch gap-0'>   
+                        <Avtar/>     
                         </li>
                        
                     </ul>
