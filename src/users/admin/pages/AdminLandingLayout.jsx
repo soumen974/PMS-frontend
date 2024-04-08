@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { Outlet } from 'react-router-dom'
 import InappLoader from '../../../Loader/InappLoader';
-import Sidebar from '../../hr/components/Sidebar';
 import Headder from '../../hr/components/Headder';
+import Sidebar_admin from '../components/Sidebar_admin';
 
 export default function AdminLandingLayout() {
   document.title = "Admin -[Placement Module]";
@@ -24,7 +24,7 @@ export default function AdminLandingLayout() {
       <>
     <div className="">
       <div className="flex h-screen overflow-hidden  dark:bg-slate-">
-        <Sidebar/>
+        <Sidebar_admin/>
         <div className="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden">
           <Headder/>
           <main>
