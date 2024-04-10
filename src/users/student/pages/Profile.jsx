@@ -1,77 +1,245 @@
-import * as React from "react";
+import React, { useState } from "react";
 import Header from "../../../commonCompo/Header";
 
-function ProfileDetail({ label, value }) {
+function ProfileDetail({ label, value, onChange, editMode }) {
+  const handleChange = (e) => {
+    onChange(label, e.target.value);
+  };
+
+  const handleFileChange = (e) => {
+    const file = e.target.files[0]; // Assuming you only allow uploading one file
+    const reader = new FileReader();
+    reader.onload = () => {
+      onChange(label, reader.result); // Set the value to the base64 representation of the image
+    };
+    reader.readAsDataURL(file);
+  };
+
   return (
-    <div className="justify-center py-1.5 bg-white rounded-sm shadow-sm">
-      <span className="font-semibold">{label}:</span> {value}
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        padding: "10px",
+        backgroundColor: "#fff",
+        borderRadius: "5px",
+        boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
+        marginBottom: "10px", // Add space between profile details
+      }}
+    >
+      <span style={{ fontWeight: "bold", width: "120px" }}>{label}:</span>{" "}
+      {!editMode && (
+        <span style={{ width: "80px" }}>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+      )}
+      {label === "Profile Icon" ||
+      label === "10th Marks" ||
+      label === "12th Marks" ? (
+        editMode ? (
+          <input
+            type="file"
+            onChange={handleFileChange}
+            accept="image/*,.pdf"
+          />
+        ) : value ? (
+          label === "Profile Icon" ? (
+            <img
+              src={value}
+              alt={label}
+              style={{
+                width: "80px",
+                height: "80px",
+                borderRadius: "50%",
+                border: "1px solid #ccc",
+              }}
+            />
+          ) : (
+            <span>
+              {label === "10th Marks" || label === "12th Marks"
+                ? "Uploaded"
+                : value}
+            </span>
+          )
+        ) : (
+          <span>
+            {label === "10th Marks" || label === "12th Marks"
+              ? "Not Uploaded"
+              : ""}
+          </span>
+        )
+      ) : editMode ? (
+        <input
+          type="text"
+          value={value}
+          onChange={handleChange}
+          style={{
+            border: "1px solid #ccc",
+            borderRadius: "3px",
+            padding: "5px",
+            width: "150px",
+          }}
+        />
+      ) : (
+        <span>{value}</span>
+      )}
     </div>
   );
 }
 
-function FileUpload({ label, icon }) {
-  return (
-    <div className="flex items-center gap-2 px-7 py-1.5 mt-2 bg-white rounded-sm shadow-sm max-md:px-5">
-      <img src={icon} alt={label + ' icon'} className="shrink-0 w-6 h-6" />
-      <div className="font-semibold">{label}</div>
-    </div>
-  );
-}
+function ProfileDetailsColumn({ profileData, editMode, onChange }) {
+  const midIndex = Math.ceil(profileData.length / 2);
+  const columnOne = profileData.slice(0, midIndex);
+  const columnTwo = profileData.slice(midIndex);
 
-function ProfileDetailsColumn({ profileData }) {
   return (
-    <div className="flex flex-col flex-1">
-      {profileData.map((data, index) => (
-        <React.Fragment key={index}>
-          {data.type === "detail" && <ProfileDetail label={data.label} value={data.value} />}
-          {data.type === "upload" && <FileUpload label={data.label} icon={data.icon} />}
-        </React.Fragment>
-      ))}
+    <div style={{ display: "flex", flex: 1 }}>
+      <div style={{ display: "flex", flexDirection: "column", flex: 1 }}>
+        {columnOne.map((data, index) => (
+          <ProfileDetail
+            key={index}
+            label={data.label}
+            value={data.value}
+            editMode={editMode}
+            onChange={onChange}
+          />
+        ))}
+      </div>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          flex: 1,
+          marginLeft: "10px",
+        }}
+      >
+        {columnTwo.map((data, index) => (
+          <ProfileDetail
+            key={index}
+            label={data.label}
+            value={data.value}
+            editMode={editMode}
+            onChange={onChange}
+          />
+        ))}
+      </div>
     </div>
   );
 }
 
 function ProfileDetailsSection() {
-  const profileData = [
-    [
-      { type: "detail", label: "First Name", value: "RASHMIKANT" },
-      { type: "detail", label: "Regs.No", value: "210301120110" },
-      { type: "detail", label: "Program", value: "BTECH" },
-      { type: "detail", label: "Semester", value: "6TH" },
-      { type: "detail", label: "Current Backlog", value: "0" },
-      { type: "detail", label: "10th Marks", value: "500" },
-      { type: "detail", label: "12th Marks", value: "490" },
-      { type: "detail", label: "Father's Name", value: "ABC" },
-      { type: "detail", label: "DOB", value: "8/5/2002" },
-      { type: "detail", label: "Mobile No", value: "545" },
-    ],
-    [
-      { type: "detail", label: "Last Name", value: "PRADHAN" },
-      { type: "detail", label: "Email", value: "AVM@GMAIL.COM" },
-      { type: "detail", label: "Branch", value: "CSE" },
-      { type: "detail", label: "Campus", value: "BBSR" },
-      { type: "detail", label: "Total Backlog", value: "0" },
-      { type: "upload", label: "10th Marksheet upload", icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/15e1f5bd5af4b86bfbe9f81deb4e17deaa7c082e072f0ceb3b512bdae80f5fc2?apiKey=7243a2d0e10f4194a9db08c3c825168c&" },
-      { type: "upload", label: "12th Marksheet upload", icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/f1e40a8de8e53eac53895ce5f3a9b664d4ba455fd399257012c65f81e619d33e?apiKey=7243a2d0e10f4194a9db08c3c825168c&" },
-      { type: "detail", label: "Mother's Name", value: "AJVL" },
-      { type: "detail", label: "Alternate Mobile No", value: "6521216" },
-    ],
-  ];
+  const [profileData, setProfileData] = useState([
+    { label: "Profile Icon", value: "" }, // Initial value for profile icon
+    { label: "First Name", value: "RASHMIKANT" },
+    { label: "Middle Name", value: "8/5/2002" },
+    { label: "Last Name", value: "8/5/2002" },
+    { label: "Email", value: "545" },
+    // { label: "Regs.No", value: "210301120110" },
+    // { label: "Program", value: "BTECH" },
+    // { label: "Semester", value: "6TH" },
+    // { label: "Branch", value: "BBSR" },
+    // { label: "Campus", value: "AVM@GMAIL.COM" },
+    { label: "DOB", value: "0" },
+    { label: "Gender", value: "0" },
+    { label: "Mobile No", value: "" }, // Empty string for initial value
+    { label: "Alt mob No", value: "" }, // Empty string for initial value
+    { label: "Father's Name", value: "ABC" },
+    { label: "Mother's Name", value: "dfa" },
+    { label: "Current Adrress", value: "dfa" },
+    { label: "Permanent Adrress", value: "dfa" },
+    { label: "10th Marks", value: "" }, // Empty string for initial value
+    { label: "12th Marks", value: "" },
+    { label: "Current degree Grade", value: "" },
+    { label: "CPI", value: "" },
+    { label: "CurrentBacklog", value: "0" },
+    { label: "Total Backlog", value: "CSE" },
 
-  
+    // Add other data objects here
+  ]);
+  const [editMode, setEditMode] = useState(false);
+
+  const handleEditClick = () => {
+    setEditMode(!editMode);
+  };
+
+  const handleSaveClick = () => {
+    setEditMode(false);
+    // Here, you can perform any save action you want
+    const profile = profileData.reduce((acc, curr) => {
+      acc[curr.label.replace(/\s/g, "")] = curr.value;
+      return acc;
+    }, {});
+    console.log(profile);
+    fetch("http://localhost:8080/api/studentprofile", {
+      method: "POST",
+      headers: { "Content-type": "application/json" },
+      body: JSON.stringify(profile),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Profile updated successfully:", data);
+      })
+      .catch((error) => {
+        console.error("Error updating profile:", error);
+      });
+  };
+
+  const handleDetailChange = (label, newValue) => {
+    const newData = profileData.map((data) =>
+      data.label === label ? { ...data, value: newValue } : data
+    );
+    setProfileData(newData);
+  };
+
   return (
-    <section className="flex flex-col items-center px-6 md:px-16 pt-16 pb-6 mt-2 rounded-md border border-orange-300 border-solid max-md:px-5 max-md:max-w-full">
-      <div className="flex flex-col md:flex-row gap-5">
-        <ProfileDetailsColumn profileData={profileData[0]} />
-        <ProfileDetailsColumn profileData={profileData[1]} />
+    <section
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        padding: "20px",
+        marginTop: "20px",
+        borderRadius: "10px",
+        border: "1px solid #f59e0b",
+        backgroundColor: "#f3f4f6",
+      }}
+    >
+      <div style={{ marginBottom: "20px" }}>
+        <ProfileDetail
+          label="Profile Icon"
+          value={profileData[0].value}
+          onChange={handleDetailChange}
+          editMode={editMode}
+        />
       </div>
+
+      <div style={{ display: "flex", flexDirection: "row", gap: "10px", width:"50vw" }}>
+        <ProfileDetailsColumn
+          profileData={profileData.slice(1)} // Exclude profile icon from details
+          editMode={editMode}
+          onChange={handleDetailChange}
+        />
+      </div>
+      <button
+        style={{
+          marginTop: "20px",
+          padding: "10px 20px",
+          borderRadius: "5px",
+          backgroundColor: editMode ? "#4caf50" : "#2196f3",
+          color: "#fff",
+          border: "none",
+          cursor: "pointer",
+        }}
+        onClick={editMode ? handleSaveClick : handleEditClick}
+      >
+        {editMode ? "Save" : "Edit"}
+      </button>
     </section>
   );
 }
 
 function Profile() {
   return (
-    <div className="">
+    <div>
       <Header />
       <ProfileDetailsSection />
     </div>
