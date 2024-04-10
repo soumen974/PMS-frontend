@@ -39,7 +39,11 @@ function App() {
         <Route path="/HR" 
           element={<HrLandingLayout/>}
         >
-          <Route path="/HR/" element={<HrHome />} />
+          <Route path="/HR/home" element={<HrHome />} />
+          <Route path="/HR/jobposting" element={<JobPosting/>} />
+          <Route path="/HR/account" element={<AccountHr/>} />
+          <Route path="/HR/settings" element={<SettingHr/>} />
+          
           
         </Route>
 

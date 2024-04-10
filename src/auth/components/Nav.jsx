@@ -8,11 +8,10 @@ export default function Nav() {
         <nav className=" border-red-800 border-t-[3px] bg-white drop-shadow-lg fixed w-full z-40 ">
             <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-2">
             <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
-                <img  src={CUTM_Logo} className="w-[8rem]" alt="Flowbite Logo" />
+                <img  src={CUTM_Logo} className="w-[8rem]" alt="" />
             </a>
             <div className="flex md:order-2 space-x-3 md:space-x-3 rtl:space-x-reverse">
-                <Link to={'/SignUp'}> <button type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded text-md px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Sign Up</button></Link>
-                <Link to={'/Login'}><button type="button" className="text-black border border-white hover:border-black    focus:ring-4 focus:outline-none focus:ring-black font-medium rounded text-md px-4 py-2 text-center   dark:focus:ring-black">Login</button></Link>
+                <Link to={'/Login'}> <button type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded text-md px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Login</button></Link>
                 
                 <button  type="button" className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-cta" aria-expanded="false">
                 <span className="sr-only">Open main menu</span>
