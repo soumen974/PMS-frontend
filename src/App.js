@@ -12,6 +12,8 @@ import Companies from './users/admin/pages/Companies';
 import JobPosting from './users/hr/pages/JobPosting';
 import AccountHr from './users/hr/pages/AccountHr';
 import SettingHr from './users/hr/pages/SettingHr';
+import Apply from './users/student/pages/Apply';
+import Setting from './users/student/pages/Setting';
 
 
 
@@ -30,7 +32,10 @@ function App() {
           path="/Student"
           element={<StudentLandingLayout />}
         >
-          <Route path="/Student/" element={<Dashboard />} />
+          <Route path="/Student/home" element={<Dashboard />} />
+          <Route path="/Student/apply" element={<Apply/>} />
+          <Route path="/Student/profile" element={<Apply/>} />
+          <Route path="/Student/setting" element={<Setting/>} />
           
         </Route>
 
@@ -50,7 +55,7 @@ function App() {
         <Route path="/Admin" 
           element={<AdminLandingLayout/>}
         >
-           <Route path="/Admin/" element={<AdminHome/>} />
+           <Route path="/Admin/home" element={<AdminHome/>} />
            <Route path="/Admin/Companies" element={<Companies/>} />
 
         </Route>

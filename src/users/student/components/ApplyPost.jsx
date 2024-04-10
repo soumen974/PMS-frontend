@@ -80,7 +80,7 @@ export default function ApplyPost() {
     {postData.map(post => (
 
       <div key={post.id} className='flex flex-col gap-7 lg:px-[1rem] pb-8'>
-      <div className='lg:flex '>
+      <div className='lg:flex gap-10 '>
 
       <div className="flex flex-wrap items-center justify-center lg:w-[30%] w-full">
               <label htmlFor="dropzone-file" className="w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100 relative">
@@ -94,26 +94,33 @@ export default function ApplyPost() {
                           <p className="text-xs text-gray-500">Image (MAX. 800x400px)</p>
                       </div>
                   
-                  <input id="dropzone-file" type="file" className="hidden"  />
+                  <input  type="file" className="hidden"  />
               </label>
           </div>
 
 
-        <div className='grid md:items-center md:justify-center  p-10 text-center  lg:text-left'>
+        
+
+        <div className='w-[70%]'>
+        <div className=''>
           <div className='text-4xl font-bold'>
             <div type="text" className="  text-2xl  text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  " >{post.title}</div>
           </div>
           <h1 className='text-4xl font-bold'>
             <div type="text" id="first_name" className=" text-2xl text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  ">{post.Company_name}</div>
           </h1>
-          <ul className='grid gap-2 '>
-            <li type="text" id="first_name" className=" text-1xl  text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  ">{post.package}</li>
+          <ul className=' '>
+            <li  className=" text-1xl  text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  ">{post.package}</li>
             
           </ul>
 
 
         </div>
-
+        <h1  className="block mb-2 text-xl font-medium text-gray-900  ">Job discription</h1>
+        <div  className="block p-2.5 w-full text-md text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 " >
+          {post.job_discription}
+        </div>
+      </div>
         
 
       </div>
@@ -125,7 +132,7 @@ export default function ApplyPost() {
         </div>
       </div>
 
-      <div>
+      <div className='hidden'>
         <h1  className="block mb-2 text-xl font-medium text-gray-900 ">Requirment</h1>
         <div  className="block p-2.5 w-full text-md text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 ">
         {post.requirment}
