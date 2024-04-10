@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Routes, Link, Outlet } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Link, Outlet, BrowserRouter } from 'react-router-dom';
 import UserEntry from './auth/pages/UserEntry';
 import Login from './auth/pages/Login';
 import SignUp from './auth/pages/SignUp ';
@@ -9,18 +9,14 @@ import HrHome from './users/hr/pages/HrHome';
 import AdminLandingLayout from './users/admin/pages/AdminLandingLayout';
 import AdminHome from './users/admin/pages/AdminHome';
 import Companies from './users/admin/pages/Companies';
-import JobPosting from './users/hr/pages/JobPosting';
-import AccountHr from './users/hr/pages/AccountHr';
-import SettingHr from './users/hr/pages/SettingHr';
-import Apply from './users/student/pages/Apply';
-import Setting from './users/student/pages/Setting';
 
 
 
 function App() {
   return (
     <>
-   <Router>
+
+   <BrowserRouter>
       <Routes>
         {/* Entry Links */}
         <Route path="/" element={<UserEntry/>} />
@@ -32,12 +28,10 @@ function App() {
           path="/Student"
           element={<StudentLandingLayout />}
         >
-          <Route path="/Student/home" element={<Dashboard />} />
-          <Route path="/Student/apply" element={<Apply/>} />
-          <Route path="/Student/profile" element={<Apply/>} />
-          <Route path="/Student/setting" element={<Setting/>} />
+          <Route path="/Student/" element={<Dashboard />} />
           
         </Route>
+        <Route path="/Student/Home" element={<StudentHome/>} />
 
         {/* HR Links */}
         <Route path="/HR" 
@@ -55,17 +49,21 @@ function App() {
         <Route path="/Admin" 
           element={<AdminLandingLayout/>}
         >
-           <Route path="/Admin/home" element={<AdminHome/>} />
+           <Route path="/Admin/" element={<AdminHome/>} />
            <Route path="/Admin/Companies" element={<Companies/>} />
 
-        </Route>
+       
+        <Route path="/profile" element={<Profile/>}></Route>
+        
       </Routes>
       
       
       
-    </Router>
+    </BrowserRouter>
+    {/* <AddStudent /> */}
     </>
   );
 }
 
 export default App;
+
