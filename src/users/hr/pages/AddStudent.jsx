@@ -68,8 +68,8 @@ function AddStudent() {
                     <tr>
                         <th>Student Name</th>
                         <th>School</th>
-                        <th>Grade</th>
-                        <th>Status</th>
+                        <th>Campus</th>
+                        <th>Branch</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -124,6 +124,7 @@ function AddStudent() {
                                 {!editMode && selectedRow === student.id ? (
                                     <div className="sub-buttons">
                                         <button onClick={() => handleEdit(student, index)}>Edit</button>
+                                        <span style={{ margin: '0 5px' }}></span> {/* Add space between buttons */}
                                         <button onClick={handleDelete}>Delete</button>
                                     </div>
                                 ) : (
@@ -131,6 +132,7 @@ function AddStudent() {
                                         <HiOutlineDotsHorizontal />
                                     </button>
                                 )}
+
                             </td>
                         </tr>
                     ))}
