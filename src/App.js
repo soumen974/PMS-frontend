@@ -11,6 +11,7 @@ import AdminHome from './users/admin/pages/AdminHome';
 import Companies from './users/admin/pages/Companies';
 import StudentHome from './users/student/pages/StudentHome';
 import Profile from './users/student/pages/Profile';
+import AddStudent from './users/hr/pages/AddStudent';
 
 
 
@@ -57,7 +58,7 @@ function App() {
       
       
     </BrowserRouter>
-    
+    {/* <AddStudent /> */}
     </>
   );
 }
