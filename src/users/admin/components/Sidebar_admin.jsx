@@ -19,9 +19,7 @@ export default function Sidebar_admin() {
                 <NavLink>
                     <img src="" alt="" /> 
                 </NavLink>
-                <button  className="block lg:hidden">
-                 
-                </button>
+                
             </div>
              
                
