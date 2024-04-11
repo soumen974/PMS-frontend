@@ -15,7 +15,7 @@ const Main = () => {
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
-        autoplaySpeed: 3000,
+        autoplaySpeed: 1000,
         
         
       };
@@ -36,12 +36,30 @@ const Main = () => {
                 </Slider>
         </div>
 
-        <div className='bg-amber-200 h-64 m-7  rounded-2xl p-7'>
-            <div className='flex justify-around'>
+        <div className='bg-amber-200 h-70 m-7  rounded-2xl p-7'>
+            {/* <div className='flex justify-around'>
               <Link to="#" className="text-black text-lg mr-4 "><div className='bg-blue-200 border border-black rounded p-3 h-24 w-40 flex flex-col justify-center items-center hover:bg-blue-100'>Jobs  </div></Link>
               <Link to="#" className="text-black text-lg mr-4 "><div className='bg-blue-200 border border-black rounded p-3 h-24 w-40 flex flex-col justify-center items-center hover:bg-blue-100'>Students</div></Link>
               <Link to="#" className="text-black text-lg mr-4 "><div className='bg-blue-200 border border-black rounded p-3 h-24 w-40 flex flex-col justify-center items-center hover:bg-blue-100'>Companies</div></Link>
-            </div>
+            </div> */}
+
+<div className='flex flex-col md:flex-row justify-center md:justify-around'>
+                        <Link to={'/jobs'} className="text-black text-lg mr-4 mb-4 md:mb-0">
+                            <div className='bg-blue-200 border border-black rounded p-3 h-24 w-40 flex flex-col justify-center items-center hover:bg-blue-100'>
+                                Jobs
+                            </div>
+                        </Link>
+                        <Link to="#" className="text-black text-lg mr-4 mb-4 md:mb-0">
+                            <div className='bg-blue-200 border border-black rounded p-3 h-24 w-40 flex flex-col justify-center items-center hover:bg-blue-100'>
+                                Students
+                            </div>
+                        </Link>
+                        <Link to="#" className="text-black text-lg mr-4 mb-4 md:mb-0">
+                            <div className='bg-blue-200 border border-black rounded p-3 h-24 w-40 flex flex-col justify-center items-center hover:bg-blue-100'>
+                                Companies
+                            </div>
+                        </Link>
+                    </div>
         </div>
       </div>
     </>
