@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./AddStudent.css";
 import { HiOutlineDotsHorizontal } from "react-icons/hi";
+import { Link } from "react-router-dom";
 
 const initialData = [
   {
@@ -79,7 +80,9 @@ function AddStudent() {
     <div className="container">
       <div className="header">
         <h1 className="header-title">Students</h1>
-        <button className="header-button">Add Student</button>
+        <Link to="/Admin/Studentform" className="header-button">
+          Add Student
+        </Link>
       </div>
       <table>
         <thead>
