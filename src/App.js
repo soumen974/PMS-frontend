@@ -14,6 +14,9 @@ import AccountHr from './users/hr/pages/AccountHr';
 import SettingHr from './users/hr/pages/SettingHr';
 import Apply from './users/student/pages/Apply';
 import Setting from './users/student/pages/Setting';
+import Students from './users/admin/pages/Students';
+import Applicants from './users/admin/pages/Applicants';
+import Adduser from './users/admin/pages/Adduser';
 
 
 
@@ -56,7 +59,12 @@ function App() {
           element={<AdminLandingLayout/>}
         >
            <Route path="/Admin/home" element={<AdminHome/>} />
+           <Route path="/Admin/Adduser" element={<Adduser/>} />
+           <Route path="/Admin/Students" element={<Students/>} />
            <Route path="/Admin/Companies" element={<Companies/>} />
+           <Route path="/Admin/Applicants" element={<Applicants/>} />
+
+
 
         </Route>
       </Routes>
