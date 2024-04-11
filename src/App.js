@@ -19,6 +19,7 @@ import Setting from './users/student/pages/Setting';
 
 
 
+
 function App() {
   return (
     <>
@@ -33,8 +34,9 @@ function App() {
           <Route path="/Student" element={<StudentLandingLayout />}>
             <Route path="/Student/home" element={<Dashboard />} />
             <Route path="/Student/apply" element={<Apply />} />
-            <Route path="/Student/profile" element={<Apply />} />
+            <Route path="/Student/profile" element={<Profile />} />
             <Route path="/Student/setting" element={<Setting />} />
+            <Route path="/StudentHome" element={<StudentHome />} />
           </Route>
           <Route path="/Student/Home" element={<StudentHome />} />
 
