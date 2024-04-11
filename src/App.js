@@ -18,6 +18,7 @@ import Apply from './users/student/pages/Apply';
 import Setting from './users/student/pages/Setting';
 import AddStudent from './users/admin/pages/AddStudent';
 import AddCompany from "./users/admin/pages/AddCompany";
+import StudentForm from './users/admin/pages/Studentform';
 
 
 
@@ -41,7 +42,6 @@ function App() {
             <Route path="/Student/profile" element={<Profile />} />
             <Route path="/Student/setting" element={<Setting />} />
             <Route path="/StudentHome" element={<StudentHome />} />
-            <Route path="/Student/Home" element={<StudentHome />} />
           </Route>
 
           {/* HR Links */}
@@ -56,8 +56,9 @@ function App() {
           <Route path="/Admin" element={<AdminLandingLayout />}>
             <Route path="/Admin/home" element={<AdminHome />} />
             <Route path="/Admin/Companies" element={<Companies />} />
-            <Route path="/Admin/Addstudent" element={<AddStudent />} />\
+            <Route path="/Admin/Addstudent" element={<AddStudent />} />
             <Route path="/Admin/Addcompany" element={<AddCompany />} />
+            <Route path="/Admin/Studentform" element={<StudentForm />} />
           </Route>
         </Routes>
       </BrowserRouter>
