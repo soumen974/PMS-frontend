@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export default function Adduser() {
+  let navigate = useNavigate();
   const [user, setUser] = useState({
     id: "",
     password: "",
@@ -10,9 +11,7 @@ export default function Adduser() {
   });
   const [addedMsg, setAddedMsg] = useState(false);
   const[errorMeg,setErrorMeg]=useState(false);
-
-  let navigate = useNavigate();
-
+  const [ofline, setofline] = useState(false)
   const { id, password, repassword ,usertype } = user;
 
   const onInputChange = (e) => {
@@ -30,45 +29,55 @@ export default function Adduser() {
 
       if(user.usertype === 'Student'){
         fetch("http://localhost:8080/Student", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(user),
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(user),
       })
-        .then(() => {
-          console.log("New Student added");
-          setAddedMsg(true);
-          setErrorMeg(false);
-    
-          setTimeout(() => {
-            setAddedMsg(false);
-          }, 5000);
-    
-          EmptyForm();
-          setTimeout(() => {
-            navigate("/");
-          }, 1000);
-        });
-
-      }else if(user.usertype === 'HR'){
-        fetch("http://localhost:8080/HR", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(user),
-      })
-        .then(() => {
+      .then(() => {
           console.log("New HR added");
           setAddedMsg(true);
           setErrorMeg(false);
-    
+
           setTimeout(() => {
-            setAddedMsg(false);
+              setAddedMsg(false);
           }, 5000);
-    
+
           EmptyForm();
           setTimeout(() => {
-            navigate("/");
+              navigate("/Admin/Adduser");
           }, 1000);
-        });
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+        setofline(true);
+        
+      });
+
+      }else if(user.usertype === 'HR'){
+        fetch("http://localhost:8080/HR", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(user),
+      })
+      .then(() => {
+          console.log("New HR added");
+          setAddedMsg(true);
+          setErrorMeg(false);
+
+          setTimeout(() => {
+              setAddedMsg(false);
+          }, 5000);
+
+          EmptyForm();
+          setTimeout(() => {
+              navigate("/Admin/Adduser");
+          }, 1000);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+        setofline(true);
+        
+      });
         
       }
       
@@ -80,6 +89,7 @@ export default function Adduser() {
 
   const EmptyForm = () => {
     setErrorMeg(false);
+    setofline(false);
     setUser({
       id: "",
       password: "",
@@ -128,6 +138,9 @@ export default function Adduser() {
 
               <div className={`${errorMeg ? "block" : "hidden"}  text-red-500 text-center border border-red-500 p-0 flex justify-between`}>
                 <h4 className='p-2'>Fill properly</h4>
+              </div>
+              <div className={`${ofline ? "block" : "hidden"}  text-red-500 text-center border border-red-500 p-0 flex justify-between`}>
+                <h4 className='p-2'>ofline / backend is not connected </h4>
               </div>
             </form>
           </div>
