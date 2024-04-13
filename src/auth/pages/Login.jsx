@@ -10,13 +10,6 @@ export default function Login() {
 
   useEffect(() => {
     setisLoading(true);
-<<<<<<< HEAD
-    setTimeout(() => {
-      setisLoading(false);
-    }, 400);
-  }, []);
-  const EntryWayMessage_SignUp = "Create an account";
-=======
     setTimeout(()=>{
     setisLoading(false)
     },400)
@@ -56,7 +49,6 @@ const handleLogin = async (e) => {
 
 
   const  EntryWayMessage_SignUp= "Create an account"
->>>>>>> f1ba3c299164157e40d4c77280ed382315dcd520
   return (
     <>
       {isLoading ? (
