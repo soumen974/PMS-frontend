@@ -11,7 +11,6 @@ import HrHome from './users/hr/pages/HrHome';
 import AdminLandingLayout from './users/admin/pages/AdminLandingLayout';
 import AdminHome from './users/admin/pages/AdminHome';
 import Companies from './users/admin/pages/Companies';
-<<<<<<< HEAD
 import JobPosting from './users/hr/pages/JobPosting';
 import AccountHr from './users/hr/pages/AccountHr';
 import SettingHr from './users/hr/pages/SettingHr';
@@ -23,16 +22,7 @@ import StudentForm from './users/admin/pages/Studentform';
 
 
 
-=======
-import StudentHome from './users/student/pages/StudentHome';
-import Profile from './users/student/pages/Profile';
-import AddStudent from './users/hr/pages/AddStudent';
-import JobPosting from './users/hr/pages/JobPosting';
-import AccountHr from './users/hr/pages/AccountHr';
-import SettingHr from './users/hr/pages/SettingHr';
-import Jobs from './users/admin/pages/Jobs';
-import  {AddNewJob}  from './users/admin/pages/AddNewJob';
->>>>>>> 7a10cb31097cfe54555981bf769b963175b3728a
+
 
 
 
@@ -44,9 +34,8 @@ function App() {
           {/* Entry Links */}
           <Route path="/" element={<UserEntry />} />
           <Route path="/Login" element={<Login />} />
-          <Route path="/SignUp" element={<SignUp />} />
+          {/* <Route path="/SignUp" element={<SignUp />} /> */}
 
-<<<<<<< HEAD
           {/* Student Links */}
           <Route path="/Student" element={<StudentLandingLayout />}>
             <Route path="/Student/home" element={<Dashboard />} />
@@ -75,52 +64,6 @@ function App() {
         </Routes>
       </BrowserRouter>
       {/* <AddStudent /> */}
-=======
-   <BrowserRouter>
-      <Routes>
-        {/* Entry Links */}
-        <Route path="/" element={<UserEntry/>} />
-        <Route path="/Login" element={<Login/>} />
-        {/* <Route path="/SignUp" element={<SignUp/>} /> */}
-
-        {/* Student Links */}
-        <Route
-          path="/Student"
-          element={<StudentLandingLayout />}
-        >
-        {/* <Route path="/Student/Home" element={<StudentHome/>} /> */}    
-        </Route>
-        <Route path="/Student/Home" element={<StudentHome/>} />
-
-        {/* HR Links */}
-        <Route path="/HR" 
-          element={<HrLandingLayout/>}
-        >
-          <Route path="/HR/home" element={<HrHome />} />
-          <Route path="/HR/jobposting" element={<JobPosting/>} />
-          <Route path="/HR/account" element={<AccountHr/>} />
-          <Route path="/HR/settings" element={<SettingHr/>} />
-        </Route>
-
-        {/* Admin Links */}
-        <Route path="/Admin" 
-          element={<AdminLandingLayout/>}
-        />
-           <Route path="/Admin/" element={<AdminHome/>} />
-           <Route path="/Admin/Companies" element={<Companies/>} />
-           <Route path="/jobs" element={<Jobs/>}/>
-           <Route path='/addNewJob' element={<AddNewJob/>}/>
-
-       
-        <Route path="/profile" element={<Profile/>}></Route>
-        
-      </Routes>
-      
-      
-      
-    </BrowserRouter>
-    {/* <AddStudent /> */}
->>>>>>> 7a10cb31097cfe54555981bf769b963175b3728a
     </>
   );
 }
