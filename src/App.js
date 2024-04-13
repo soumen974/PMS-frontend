@@ -19,6 +19,7 @@ import Jobs from './users/admin/pages/Jobs';
 import  {AddNewJob}  from './users/admin/pages/AddNewJob';
 import JobsApplied from './users/student/pages/JobsApplied.jsx';
 import AddCompany from './users/admin/pages/AddCompany.jsx';
+import JobDetails from './users/student/pages/JobDetails.jsx';
 
 
 
@@ -41,6 +42,8 @@ function App() {
         </Route>
         <Route path="/Student/Home" element={<StudentHome/>} />
         <Route path="/jobsApplied" element={<JobsApplied/>}/>
+        <Route path="/jobDetails" element={<JobDetails/>}/>
+
 
         {/* HR Links */}
         <Route path="/HR" 
