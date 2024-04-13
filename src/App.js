@@ -17,6 +17,7 @@ import AccountHr from './users/hr/pages/AccountHr';
 import SettingHr from './users/hr/pages/SettingHr';
 import Jobs from './users/admin/pages/Jobs';
 import  {AddNewJob}  from './users/admin/pages/AddNewJob';
+import JobsApplied from './users/student/pages/JobsApplied.jsx';
 
 
 
@@ -39,12 +40,13 @@ function App() {
         {/* <Route path="/Student/Home" element={<StudentHome/>} /> */}    
         </Route>
         <Route path="/Student/Home" element={<StudentHome/>} />
+        <Route path="/jobsApplied" element={<JobsApplied/>}/>
 
         {/* HR Links */}
         <Route path="/HR" 
           element={<HrLandingLayout/>}
         >
-          <Route path="/HR/home" element={<HrHome />} />
+          <Route path="/HR/Home" element={<HrHome />} />
           <Route path="/HR/jobposting" element={<JobPosting/>} />
           <Route path="/HR/account" element={<AccountHr/>} />
           <Route path="/HR/settings" element={<SettingHr/>} />
@@ -54,7 +56,7 @@ function App() {
         <Route path="/Admin" 
           element={<AdminLandingLayout/>}
         />
-           <Route path="/Admin/" element={<AdminHome/>} />
+           <Route path="/Admin/Home" element={<AdminHome/>} />
            <Route path="/Admin/Companies" element={<Companies/>} />
            <Route path="/jobs" element={<Jobs/>}/>
            <Route path='/addNewJob' element={<AddNewJob/>}/>

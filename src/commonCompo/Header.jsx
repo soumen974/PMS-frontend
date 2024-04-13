@@ -22,9 +22,9 @@ const Header = () => {
     event.preventDefault(); 
     if (code === 'admin') {
       console.log(loginStorage.details);
-      navigate('/Admin/');
+      navigate('/Admin/Home');
     } else if (code === 'hr') {
-      navigate('/HR/home');
+      navigate('/HR/Home');
     } else if (code === 'student') {
       navigate('/Student/Home');
     } else {

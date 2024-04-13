@@ -50,11 +50,11 @@ const handleLogin = async (e) => {
       //loginStorage.details = data;
       setTimeout(() => {
         if (code === 'admin') {
-          navigate('/Admin/')
-        } else if (data === 'student') {
+          navigate('/Admin/Home')
+        } else if (code === 'student') {
           navigate('/Student/Home');
-        } else if (data === 'hr') {
-          navigate('/HR/home');
+        } else if (code === 'hr') {
+          navigate('/HR/Home');
         }
       }, 1000);
     }
