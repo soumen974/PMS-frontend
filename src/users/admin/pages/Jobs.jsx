@@ -9,20 +9,41 @@ import Swal from 'sweetalert2';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
+import {useNavigate} from 'react-router-dom';
 
 const Jobs = () => {
   const [jobs, setJobs] = useState([]);
   const [showModal, setShowModal] = useState(false);
+  const [companies, setCompanies] = useState([]);
   const [formData, setFormData] = useState({
+    jobId: '', // Set jobId
+    companyId: '',
     title: '',
     company: '',
     description: '',
     requirements: '',
   });
 
+
+  const navigate=useNavigate();
+
+  useEffect(() => {
+    axios.get('/api/admin/getAllCompany')
+        .then(response => {
+            setCompanies(response.data);
+        })
+        .catch(error => {
+            console.error('Error fetching companies:', error);
+        });
+}, []);
+
 useEffect(() => {
     fetchJobs();
-}, []);
+},[showModal]);
+useEffect(() => {
+  console.log(formData); 
+}, [formData]); 
+
 
 const fetchJobs = async () => {
     try {
@@ -66,6 +87,8 @@ const handleDelete = async (jobId) => {
 
     const handleEdit = (job) => {
       setFormData({
+        jobId: job.id, // Set jobId
+        companyId: job.company.id,
         title: job.title,
         company: job.company.name,
         description: job.description,
@@ -79,14 +102,49 @@ const handleDelete = async (jobId) => {
     };
 
     const handleFormChange = (e) => {
-        setFormData({
-          ...formData,
-          [e.target.name]: e.target.value,
-        });
+       e.preventDefault();
+        // setFormData({
+        //   ...formData,
+        //   [e.target.name]: e.target.value,
+        // });
+
+        // setFormData(prevState => ({
+        //   ...prevState,
+        //   [e.target.name]: e.target.value,
+        // }));
+
+        if (e.target.name === "company") {
+          const selectedCompany = companies.find(company => company.name === e.target.value);
+          setFormData(prevState => ({
+            ...prevState,
+            companyId: selectedCompany ? selectedCompany.id : '',
+            [e.target.name]: e.target.value,
+          }));
+        } else {
+          setFormData(prevState => ({
+            ...prevState,
+            [e.target.name]: e.target.value,
+          }));
+        }
+        //console.log(formData); // Log the state after setting it
     };
 
     const handleFormSubmit = async () => {
-        setShowModal(false);
+        try {
+            const { jobId, companyId, ...data } = formData; 
+            const response = await axios.put(`/api/admin/updateJob/${jobId}/${companyId}`, {title:formData.title,requirements:formData.requirements,description:formData.description});
+            if (response.status === 200) {
+              setShowModal(false);
+              Swal.fire('Success', 'Job updated successfully', 'success');
+              navigate('/jobs'); // Navigate to "/jobs" after successful update
+            } else {
+              throw new Error('Failed to update job');
+            }
+        } catch (error) {
+            console.error('Error updating job:', error);
+            Swal.fire('Error', 'Failed to update job', 'error');
+        }
+        //setShowModal(false);
     };
   
 
@@ -117,8 +175,8 @@ const handleDelete = async (jobId) => {
                 <td>{job.description}</td>
                 <td>{job.requirements}</td>
                 <td>
-                  <button className='btn btn-sm bg-black'onClick={() => handleEdit(job)}>Edit</button>
-                  <button className='btn btn-sm bg-black ms-2' onClick={handleClick}>Delete</button>
+                  <button className='btn btn-sm bg-black text-white'onClick={() => handleEdit(job)}>Edit</button>
+                  <button className='btn btn-sm bg-black ms-2 text-white' onClick={handleClick}>Delete</button>
                 </td>
             </tr>
         ))}
@@ -151,7 +209,7 @@ const handleDelete = async (jobId) => {
             </Form.Group>
 
             <Form.Group controlId="formCompany">
-              <Form.Label>Company</Form.Label>
+              <Form.Label className='pt-2'>Company</Form.Label>
               <Form.Control
                 as="select"
                 name="company"
@@ -159,11 +217,15 @@ const handleDelete = async (jobId) => {
                 onChange={handleFormChange}
               >
                 {/* Options go here */}
+                <option value="">Select</option>
+                  {companies.map(company => (
+                    <option key={company.id} value={company.name}>{company.name}</option>
+                  ))}
               </Form.Control>
             </Form.Group>
 
             <Form.Group controlId="formDescription">
-              <Form.Label>Description</Form.Label>
+              <Form.Label className='pt-2'>Description</Form.Label>
               <Form.Control
                 as="textarea"
                 rows={3}
@@ -175,7 +237,7 @@ const handleDelete = async (jobId) => {
             </Form.Group>
 
             <Form.Group controlId="formRequirements">
-              <Form.Label>Requirements</Form.Label>
+              <Form.Label className='pt-2'>Requirements</Form.Label>
               <Form.Control
                 as="textarea"
                 rows={3}

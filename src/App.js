@@ -14,6 +14,7 @@ import Companies from './users/admin/pages/Companies';
 import JobPosting from './users/hr/pages/JobPosting';
 import AccountHr from './users/hr/pages/AccountHr';
 import SettingHr from './users/hr/pages/SettingHr';
+<<<<<<< HEAD
 import Apply from './users/student/pages/Apply';
 import Setting from './users/student/pages/Setting';
 import AddStudent from './users/admin/pages/AddStudent';
@@ -23,6 +24,11 @@ import StudentForm from './users/admin/pages/Studentform';
 
 
 
+=======
+import Jobs from './users/admin/pages/Jobs';
+import  {AddNewJob}  from './users/admin/pages/AddNewJob';
+import JobsApplied from './users/student/pages/JobsApplied.jsx';
+>>>>>>> f1ba3c299164157e40d4c77280ed382315dcd520
 
 
 
@@ -45,6 +51,7 @@ function App() {
             <Route path="/StudentHome" element={<StudentHome />} />
           </Route>
 
+<<<<<<< HEAD
           {/* HR Links */}
           <Route path="/HR" element={<HrLandingLayout />}>
             <Route path="/HR/home" element={<HrHome />} />
@@ -64,6 +71,46 @@ function App() {
         </Routes>
       </BrowserRouter>
       {/* <AddStudent /> */}
+=======
+        {/* Student Links */}
+        <Route
+          path="/Student"
+          element={<StudentLandingLayout />}
+        >
+        {/* <Route path="/Student/Home" element={<StudentHome/>} /> */}    
+        </Route>
+        <Route path="/Student/Home" element={<StudentHome/>} />
+        <Route path="/jobsApplied" element={<JobsApplied/>}/>
+
+        {/* HR Links */}
+        <Route path="/HR" 
+          element={<HrLandingLayout/>}
+        >
+          <Route path="/HR/Home" element={<HrHome />} />
+          <Route path="/HR/jobposting" element={<JobPosting/>} />
+          <Route path="/HR/account" element={<AccountHr/>} />
+          <Route path="/HR/settings" element={<SettingHr/>} />
+        </Route>
+
+        {/* Admin Links */}
+        <Route path="/Admin" 
+          element={<AdminLandingLayout/>}
+        />
+           <Route path="/Admin/Home" element={<AdminHome/>} />
+           <Route path="/Admin/Companies" element={<Companies/>} />
+           <Route path="/jobs" element={<Jobs/>}/>
+           <Route path='/addNewJob' element={<AddNewJob/>}/>
+
+       
+        <Route path="/profile" element={<Profile/>}></Route>
+        
+      </Routes>
+      
+      
+      
+    </BrowserRouter>
+    {/* <AddStudent /> */}
+>>>>>>> f1ba3c299164157e40d4c77280ed382315dcd520
     </>
   );
 }

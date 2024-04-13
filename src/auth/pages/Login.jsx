@@ -10,11 +10,53 @@ export default function Login() {
 
   useEffect(() => {
     setisLoading(true);
+<<<<<<< HEAD
     setTimeout(() => {
       setisLoading(false);
     }, 400);
   }, []);
   const EntryWayMessage_SignUp = "Create an account";
+=======
+    setTimeout(()=>{
+    setisLoading(false)
+    },400)
+}, [])
+
+
+
+const handleLogin = async (e) => {
+  e.preventDefault();
+  try {
+    const response = await axios.post('/api/login', { email, password });
+    const { data } = response;
+    if (typeof data === 'string') {
+      setMessage(data); // Display error message
+      setTimeout(() => {
+        setMessage('');
+      }, 4000);
+    } else {
+      loginStorage.details = data;
+      console.log(loginStorage);
+      setMessage('Logged in successfully');
+      //loginStorage.details = data;
+      setTimeout(() => {
+        if (code === 'admin') {
+          navigate('/Admin/Home')
+        } else if (code === 'student') {
+          navigate('/Student/Home');
+        } else if (code === 'hr') {
+          navigate('/HR/Home');
+        }
+      }, 1000);
+    }
+  } catch (error) {
+    console.error('Error:', error);
+  }
+};
+
+
+  const  EntryWayMessage_SignUp= "Create an account"
+>>>>>>> f1ba3c299164157e40d4c77280ed382315dcd520
   return (
     <>
       {isLoading ? (
