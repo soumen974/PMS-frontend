@@ -5,12 +5,12 @@ import Dashboard from './components/Dashboard'
 import { useState } from 'react'
 
 function App() {
-   const [SlidebarToggle, setSlidebarToggle]=useState(false)
+   const [slidebarToggle, setSlidebarToggle] = useState(false)
   return (
     <div>
-      <Slidebar SlidebarToggle={SlidebarToggle}/>
+      <Slidebar slidebarToggle={slidebarToggle}/>
       <Dashboard 
-      SlidebarToggle={SlidebarToggle}
+      slidebarToggle={slidebarToggle}
       setSlidebarToggle={setSlidebarToggle}/>
     </div>
   )

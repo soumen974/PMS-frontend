@@ -1,11 +1,12 @@
 import React from 'react'
 import Navbar from './Navbar'
+import Slidebar from './Slidebar'
 
-const Dashboard = ({SlidebarToggle, setSlidebarToggle}) => {
+const Dashboard = ({slidebarToggle, setSlidebarToggle}) => {
   return (
-    <div className={'${SlidebarToggle ? "" : "ml-64" } w-full'}>
+    <div className={`${slidebarToggle ? " " : " mr-64 "}w-full`}>
       <Navbar 
-      SlidebarToggle={SlidebarToggle}
+      slidebarToggle={slidebarToggle}
       setSlidebarToggle={setSlidebarToggle}/>
     </div>
   )
