@@ -1,37 +1,49 @@
-import React from 'react'
-import { FaBars, FaBell, FaSearch, FaUserCircle, FaUserClock} from 'react-icons/fa'
+import React, {useState} from 'react'
+import { Link } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 
-const Navbar = ({SlidebarToggle, setSlidebarToggle}) => {
-  return (
-    <nav className='bg-pink-800 px-4 py-3 flex justify-between'>
-       <div className='flex items-center text-xl'>
-        <FaBars className='text-white me-4 cursor-pointer' onClick={() => setSlidebarToggle(!SlidebarToggle)}></FaBars>
-        <span className='text-white font-semibold'>Placement Cell</span>
-       </div>
-       <div className='flex items-center gap-x-5'>
-       <div className='relative md:w-65'>
-        <span className='relative md:absolute inset-y-0 left-0 flex items'>
-        <button className='p-1 focus:outline-none text-white md:text-black'><FaSearch /></button></span>
-        <input type='text' className='w-full px-4 py-1 pl-12 rounde shadow outline-none'/>
-       </div>
 
-       <div className='text-white'><FaBell className='w-6 h-6'></FaBell></div>
+import "./Navbar.css";
+// import { FaSearch } from 'react-icons/fa';
 
-  <div className='relative'>
-        <button className='text-white group'>
-            <FaUserCircle className='w-6 h-6 mt-1'/>
-            <div className='z-10 hidden absolute bg-white rounded-lg shadow w-32 group-focus:block top-full right-0'>
-            <ul className='py-2 text-sm text-gray-950'>
-                <li><a href="">Home</a></li>
-                <li><a href="">About Us</a></li>
-                <li><a href="">Contact Us</a></li>
-            </ul>
-            </div>
-        </button>
-  </div> 
-    </div>
-    </nav>
-  )
+export const Navbar = () => {
+
+  const [menuOpen, SetmenuOpen] = useState(false)
+
+  return <nav>
+    <Link to="/" className='title'> 
+      Placement Cell
+      </Link>
+      <div className="menu" onClick={() => {
+        SetmenuOpen(!menuOpen)
+      }}> 
+        <span></span>
+        <span></span>
+        <span></span> 
+      </div>
+      {/* <div className='text-white'><FaBell className='w-6 h-6'></FaBell></div> */}
+      {/* <div className="nav-wrapper">
+                <form>
+                    <div className="input-field">
+                        <input id="search" type="search" placeholder="Search" />
+                        <label className="label-icon" htmlFor="search"></label>
+                        <FaSearch className="material-icons"></FaSearch>
+                    </div>
+                </form>
+            </div> */}
+
+    <ul className='NavComp'>
+        <li>
+            <NavLink to="/about">About</NavLink>
+        </li>
+        <li>
+           <NavLink to="/services">Services</NavLink>
+        </li>
+        <li> 
+            <NavLink to="/contact">Contact</NavLink>
+        </li>
+        </ul>
+    {/* </ul> */}
+  </nav> 
+
 }
-
-export default Navbar

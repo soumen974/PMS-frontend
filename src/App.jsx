@@ -1,19 +1,22 @@
-import './App.css'
-import Slidebar from './components/Slidebar'
-import Dashboard from './components/Dashboard'
+// App.jsx
+import React from 'react';
+import { Route, Routes } from "react-router-dom";
+import { Navbar } from './components/Navbar';
+import { About,Contact,Services } from "./components/pages";
 
-import { useState } from 'react'
+import './App.css';
 
-function App() {
-   const [SlidebarToggle, setSlidebarToggle]=useState(false)
+const App = () => {
   return (
-    <div>
-      <Slidebar SlidebarToggle={SlidebarToggle}/>
-      <Dashboard 
-      SlidebarToggle={SlidebarToggle}
-      setSlidebarToggle={setSlidebarToggle}/>
+    <div className="app">
+      <Navbar />
+      <Routes>
+        <Route path="/contact" element={<Contact/>} />
+        <Route path="/services" element={<Services/>} />
+        <Route path="/about" element={<About/>} />
+      </Routes>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;

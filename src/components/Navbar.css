@@ -1,0 +1,206 @@
+
+.active {
+  background-color: #e27d7d;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #a50606;
+  position: sticky;
+  top: 0;
+}
+
+nav .title {
+  font-size: 1.5rem;
+  margin: 1rem;
+  font-weight: bold;
+  margin-right: 1000px;
+  text-decoration: none;
+  color: aliceblue;
+  width:500px;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+    align-items: center;
+}
+
+nav ul li {
+  list-style: none;
+  margin-right: 40px;
+  text-decoration: none;
+  margin-left: 40px;
+
+}
+
+nav ul li a {
+  color: aliceblue;
+}
+
+.NavComp{
+  margin-right: 40px;
+}
+
+/* nav ul li a {
+  display: block;
+  text-decoration: none;
+  color: aliceblue;
+  padding: 0.5rem;
+  margin: 0 0.5rem;
+  align-items: center;
+  border-radius: 0.5rem;
+} */
+nav ul li a:not(.active):hover {
+  background-color: #de9696;
+}
+
+nav .menu {
+  display: flex;
+  position: absolute;
+  top: 0.75rem;
+  right: 0.5rem;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 2.25rem;
+  height: 2rem;
+  
+}
+
+nav .menu span {
+  height: 0.4rem;
+  width: 100%;
+  background-color: aliceblue;
+  border-radius: 0.2rem;
+}
+
+@media (max-width: 1000px) { 
+nav .menu {
+  display: flex;
+}
+
+nav {
+  flex-direction: column;   
+  /* forms columns and pushed the items below */
+  align-items: start;
+}
+
+nav ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  float: right;
+  width: 100%;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+nav ul.open {
+  display: none;
+  float: right;
+}
+
+nav ul li {
+  width: 100%;
+  align-items: center;
+}
+
+menu.open{
+  display: flex;
+  float: right;
+}
+
+/* nav ul li {
+  width: 50%;
+  align-items: center;
+} */
+
+nav ul li a {
+  margin: 0.2rem 0.5rem;
+}
+}
+/* Rest of your CSS for .nav-wrapper, .input-field, etc. */
+/* .nav-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 0px;
+}
+
+.input-field {
+  margin-top: 0px;
+  margin-bottom: 10px;
+  position: relative;
+  padding-left: 300px;
+}
+
+.input-field input[type="search"] {
+  border: none;
+  border-bottom: 0px solid #fff;
+  background-color: #fff;
+  color: #080808;
+  width: 220px;
+  padding: 10px 10px;
+  font-size: 18px;
+  margin-top: 0px;
+  padding-left: 20px;
+}
+
+.input-field input[type="search"]:focus {
+  border-bottom: 1px solid #fff;
+}
+
+.label-icon {
+  color: #f9f5f5;
+  padding-left: 10px;
+}
+
+.material-icons {
+  color: #171616;
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  cursor: pointer;
+}
+
+.material-icons:hover {
+  color: #ccc;
+} */
+
+.menu {
+  /* Add your styles for the menu container here */
+}
+
+.menu ul {
+  list-style: none;
+  padding: 0;
+}
+
+.menu ul li {
+  margin-bottom: 10px; /* Adjust spacing between menu items */
+}
+
+.menu ul li a {
+  display: block;
+  color: black; /* Adjust text color */
+  text-decoration: none;
+  padding: 5px;
+}
+
+.menu ul li a:hover {
+  background-color: lightgray; /* Adjust background color on hover */
+}
+
+/* Styles for the Font Awesome icons */
+.menu ul li a .inline-block {
+  display: inline-block;
+  width: 20px; /* Adjust icon width */
+  height: 20px; /* Adjust icon height */
+  margin-right: 5px; /* Adjust spacing between icon and text */
+  margin-top: -2px; /* Adjust vertical alignment */
+}
+
+/* Additional styles for individual icons can be added similarly */
+
+
+
