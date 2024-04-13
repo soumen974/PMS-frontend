@@ -3,34 +3,34 @@ import UserEntry from './auth/pages/UserEntry';
 import Login from './auth/pages/Login';
 // import SignUp from './auth/pages/SignUp ';
 import StudentLandingLayout from './users/student/pages/StudentLandingLayout';
+import StudentHome from './users/student/pages/StudentHome';
 import Dashboard from './users/student/pages/Dashboard';
 import HrLandingLayout from './users/hr/pages/HrLandingLayout';
 import HrHome from './users/hr/pages/HrHome';
 import AdminLandingLayout from './users/admin/pages/AdminLandingLayout';
 import AdminHome from './users/admin/pages/AdminHome';
 import Companies from './users/admin/pages/Companies';
-import StudentHome from './users/student/pages/StudentHome';
 import Profile from './users/student/pages/Profile';
-import AddStudent from './users/hr/pages/AddStudent';
+import AddStudent from './users/admin/pages/AddStudent';
 import JobPosting from './users/hr/pages/JobPosting';
 import AccountHr from './users/hr/pages/AccountHr';
 import SettingHr from './users/hr/pages/SettingHr';
 import Jobs from './users/admin/pages/Jobs';
 import  {AddNewJob}  from './users/admin/pages/AddNewJob';
 import JobsApplied from './users/student/pages/JobsApplied.jsx';
+import AddCompany from './users/admin/pages/AddCompany.jsx';
 
 
 
 function App() {
   return (
     <>
-
-   <BrowserRouter>
-      <Routes>
-        {/* Entry Links */}
-        <Route path="/" element={<UserEntry/>} />
-        <Route path="/Login" element={<Login/>} />
-        {/* <Route path="/SignUp" element={<SignUp/>} /> */}
+      <BrowserRouter>
+        <Routes>
+          {/* Entry Links */}
+          <Route path="/" element={<UserEntry />} />
+          <Route path="/Login" element={<Login />} />
+          {/* <Route path="/SignUp" element={<SignUp />} /> */}
 
         {/* Student Links */}
         <Route
@@ -60,6 +60,8 @@ function App() {
            <Route path="/Admin/Companies" element={<Companies/>} />
            <Route path="/jobs" element={<Jobs/>}/>
            <Route path='/addNewJob' element={<AddNewJob/>}/>
+           <Route path='/addStudent' element={<AddStudent/>}/>
+           <Route path='/addCompany' element={<AddCompany/>}/>
 
        
         <Route path="/profile" element={<Profile/>}></Route>

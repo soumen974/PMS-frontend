@@ -7,5 +7,3 @@ const JobsApplied = () => {
 }
 
 export default JobsApplied
-
-
