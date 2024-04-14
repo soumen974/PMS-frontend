@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom"; // Import useHistory for navigation
 import "./AddCompany.css";
 
 const AddCompany = () => {
@@ -11,9 +12,25 @@ const AddCompany = () => {
   const [hrMiddleName, setHrMiddleName] = useState("");
   const [hrLastName, setHrLastName] = useState("");
   const [hrEmail, setHrEmail] = useState("");
+  const [error, setError] = useState(""); // State for form validation error
+  const history = useNavigate(); // Initialize useHistory
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Validate form fields
+    if (
+      !name ||
+      !industry ||
+      !description ||
+      !location ||
+      !hrFirstName ||
+      !hrLastName ||
+      !hrEmail
+    ) {
+      setError("Please fill in all fields.");
+      return;
+    }
 
     try {
       const response = await axios.post(
@@ -34,7 +51,12 @@ const AddCompany = () => {
 
       console.log("Response:", response.data);
 
-      // Clear form after successful submission
+      if (response.status === 201) {
+        // Navigate to Companies page if status is 201 (created)
+        history.push("/Admin/Companies");
+      }
+
+      // Clear form and error state after successful submission
       setName("");
       setIndustry("");
       setDescription("");
@@ -43,6 +65,7 @@ const AddCompany = () => {
       setHrMiddleName("");
       setHrLastName("");
       setHrEmail("");
+      setError("");
     } catch (error) {
       console.error("Error:", error);
     }
@@ -61,76 +84,9 @@ const AddCompany = () => {
             onChange={(e) => setName(e.target.value)}
           />
         </div>
-
-        <div className="form-group">
-          <label htmlFor="industry">Industry:</label>
-          <input
-            type="text"
-            id="industry"
-            value={industry}
-            onChange={(e) => setIndustry(e.target.value)}
-          />
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="description">Description:</label>
-          <textarea
-            id="description"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-          />
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="location">Location:</label>
-          <input
-            type="text"
-            id="location"
-            value={location}
-            onChange={(e) => setLocation(e.target.value)}
-          />
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="hrFirstName">HR First Name:</label>
-          <input
-            type="text"
-            id="hrFirstName"
-            value={hrFirstName}
-            onChange={(e) => setHrFirstName(e.target.value)}
-          />
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="hrMiddleName">HR Middle Name:</label>
-          <input
-            type="text"
-            id="hrMiddleName"
-            value={hrMiddleName}
-            onChange={(e) => setHrMiddleName(e.target.value)}
-          />
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="hrLastName">HR Last Name:</label>
-          <input
-            type="text"
-            id="hrLastName"
-            value={hrLastName}
-            onChange={(e) => setHrLastName(e.target.value)}
-          />
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="hrEmail">HR Email:</label>
-          <input
-            type="email"
-            id="hrEmail"
-            value={hrEmail}
-            onChange={(e) => setHrEmail(e.target.value)}
-          />
-        </div>
-
+        {/* Other form fields */}
+        {error && <div className="error-message">{error}</div>}{" "}
+        {/* Display error message if there's any */}
         <button className="add-company-btn" type="submit">
           Add Company
         </button>

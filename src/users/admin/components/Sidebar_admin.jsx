@@ -121,7 +121,7 @@ export default function Sidebar_admin() {
                 </li>
 
                 <li className="group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium  duration-300 ease-in-out  dark:hover:bg-meta-">
-                  Lorem
+                  Lorema
                 </li>
               </ul>
             </div>

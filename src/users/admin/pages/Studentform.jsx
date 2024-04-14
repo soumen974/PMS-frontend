@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-
 const StudentForm = () => {
-  const [name, setName] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [middleName, setMiddleName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [branch, setBranch] = useState("");
   const [campus, setCampus] = useState("");
@@ -15,9 +16,11 @@ const StudentForm = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8080/api/admin/addStudentadmin",
+        "http://localhost:8080/api/admin/addStudents",
         {
-          studentName: name,
+          firstName: firstName,
+          middleName: middleName,
+          lastName: lastName,
           email: email,
           branch: branch,
           campus: campus,
@@ -25,57 +28,58 @@ const StudentForm = () => {
           password: password, // Include password in form data
         }
       );
-        console.log("Student added successfully!");
-        // Reset form fields after successful submission
-        setName("");
-        setEmail("");
-        setBranch("");
-        setCampus("");
-        setSchool("");
-        setPassword(""); // Clear password field
-      }catch (error) {
+
+      console.log("Student added successfully!");
+      // Reset form fields after successful submission
+      setFirstName("");
+      setMiddleName("");
+      setLastName("");
+      setEmail("");
+      setBranch("");
+      setCampus("");
+      setSchool("");
+      setPassword(""); // Clear password field
+    } catch (error) {
       console.error("Error adding student:", error);
     }
   };
 
   return (
-    <div
-      className="student-form-container"
-      style={{
-        maxWidth: "400px",
-        margin: "auto",
-        padding: "20px",
-        border: "1px solid #ccc",
-        borderRadius: "8px",
-        boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
-      }}
-    >
-      <h1 style={{ textAlign: "center", marginBottom: "20px", color: "#333" }}>
-        Add New Student
-      </h1>
+    <div className="student-form-container">
+      <h1>Add New Student</h1>
       <form onSubmit={handleSubmit} className="student-form">
         <div className="form-group">
-          <label
-            htmlFor="name"
-            style={{ display: "block", marginBottom: "5px", color: "#666" }}
-          >
-            Name:
-          </label>
+          <label htmlFor="firstName">First Name:</label>
           <input
             type="text"
-            id="name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            style={{
-              width: "100%",
-              padding: "8px",
-              borderRadius: "4px",
-              border: "1px solid #ccc",
-              marginBottom: "15px",
-            }}
+            id="firstName"
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
           />
         </div>
 
+        <div className="form-group">
+          <label htmlFor="middleName">Middle Name:</label>
+          <input
+            type="text"
+            id="middleName"
+            value={middleName}
+            onChange={(e) => setMiddleName(e.target.value)}
+          />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="lastName">Last Name:</label>
+          <input
+            type="text"
+            id="lastName"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+          />
+        </div>
+
+        {/* Other form fields */}
+        {/* Email, branch, campus, school, password */}
         <div className="form-group">
           <label
             htmlFor="email"
@@ -207,20 +211,7 @@ const StudentForm = () => {
           />
         </div>
 
-        <button
-          type="submit"
-          style={{
-            width: "100%",
-            backgroundColor: "#007bff",
-            color: "#fff",
-            padding: "10px",
-            borderRadius: "4px",
-            border: "none",
-            cursor: "pointer",
-          }}
-        >
-          Add Student
-        </button>
+        <button type="submit">Add Student</button>
       </form>
     </div>
   );

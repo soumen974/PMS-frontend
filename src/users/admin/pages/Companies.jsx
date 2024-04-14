@@ -1,15 +1,33 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import { Link } from "react-router-dom";
 
-
 export default function Companies() {
+  const [companies, setCompanies] = useState([]);
+
+  useEffect(() => {
+    // Fetch company details from the database
+    const fetchCompanies = async () => {
+      try {
+        const response = await axios.get(
+          "http://localhost:8080/api/admin/getAllCompany"
+        ); 
+        setCompanies(response.data);
+      } catch (error) {
+        console.error("Error fetching companies:", error);
+      }
+    };
+
+    fetchCompanies();
+  }, []);
+
   return (
     <>
       <div className="relative grid overflow-x-auto shadow-md sm:rounded-lg p-5">
         <button type="button" class="grid justify-end pb-5">
           <Link to="/Admin/Addcompany">
             <h1 className='grid  text-white bg-[#24292F] hover:bg-[#24292F]/90 focus:ring-4 focus:outline-none focus:ring-[#24292F]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center  items-center dark:focus:ring-gray-500 dark:hover:bg-[#050708]/30 me-2 mb-2"'>
-              Add new compan
+              Add new company
             </h1>
           </Link>
         </button>
@@ -26,7 +44,7 @@ export default function Companies() {
                 Location
               </th>
               <th scope="col" className="px-6 py-3">
-                Employees
+                HR
               </th>
               <th scope="col" className="px-6 py-3">
                 Action
@@ -34,25 +52,27 @@ export default function Companies() {
             </tr>
           </thead>
           <tbody>
-            <tr className="odd:bg-white   border-b ">
-              <th
-                scope="row"
-                className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap "
-              >
-                Company A
-              </th>
-              <td className="px-6 py-4">Technology</td>
-              <td className="px-6 py-4">New York</td>
-              <td className="px-6 py-4">1000</td>
-              <td className="px-6 py-4">
-                <a
-                  href="#"
-                  className="font-medium text-blue-600  hover:underline"
+            {companies.map((company) => (
+              <tr key={company.id} className="odd:bg-white   border-b">
+                <th
+                  scope="row"
+                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
                 >
-                  Edit
-                </a>
-              </td>
-            </tr>
+                  {company.name}
+                </th>
+                <td className="px-6 py-4">{company.industry}</td>
+                <td className="px-6 py-4">{company.location}</td>
+                <td className="px-6 py-4">{company.hr.email}</td>
+                <td className="px-6 py-4">
+                  <Link
+                    to={`/edit-company/${company.id}`}
+                    className="font-medium text-blue-600 hover:underline"
+                  >
+                    Edit
+                  </Link>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>

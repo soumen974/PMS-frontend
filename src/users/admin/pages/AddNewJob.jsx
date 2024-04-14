@@ -39,7 +39,7 @@ export const AddNewJob = () => {
                 description
             });
             if (response.status === 201) {
-                navigate('/jobs');
+                navigate('/Admin/jobs');
             } else {
                 console.error('Failed to add new job:', response);
             }
