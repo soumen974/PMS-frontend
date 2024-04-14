@@ -20,6 +20,7 @@ const Jobs = () => {
     companyId: '',
     title: '',
     company: '',
+    status:'',
     description: '',
     requirements: '',
   });
@@ -91,6 +92,7 @@ const handleDelete = async (jobId) => {
         companyId: job.company.id,
         title: job.title,
         company: job.company.name,
+        status:job.status,
         description: job.description,
         requirements: job.requirements,
       });
@@ -132,7 +134,7 @@ const handleDelete = async (jobId) => {
     const handleFormSubmit = async () => {
         try {
             const { jobId, companyId, ...data } = formData; 
-            const response = await axios.put(`/api/admin/updateJob/${jobId}/${companyId}`, {title:formData.title,requirements:formData.requirements,description:formData.description});
+            const response = await axios.put(`/api/admin/updateJob/${jobId}/${companyId}`, {title:formData.title,requirements:formData.requirements,description:formData.description,status:formData.status});
             if (response.status === 200) {
               setShowModal(false);
               Swal.fire('Success', 'Job updated successfully', 'success');
@@ -164,6 +166,7 @@ const handleDelete = async (jobId) => {
           <th>Company</th>
           <th>Description</th>
           <th>Requirements</th>
+          <th>Status</th>
           <th>Action</th>
         </tr>
       </thead>
@@ -174,6 +177,7 @@ const handleDelete = async (jobId) => {
                 <td>{job.company.name}</td>
                 <td>{job.description}</td>
                 <td>{job.requirements}</td>
+                <td>{job.status}</td>
                 <td>
                   <button className='btn btn-sm bg-black text-white'onClick={() => handleEdit(job)}>Edit</button>
                   <button className='btn btn-sm bg-black ms-2 text-white' onClick={handleClick}>Delete</button>
@@ -221,6 +225,21 @@ const handleDelete = async (jobId) => {
                   {companies.map(company => (
                     <option key={company.id} value={company.name}>{company.name}</option>
                   ))}
+              </Form.Control>
+            </Form.Group>
+
+            <Form.Group controlId="formCompany">
+              <Form.Label className='pt-2'>Status</Form.Label>
+              <Form.Control
+                as="select"
+                name="status"
+                value={formData.status}
+                onChange={handleFormChange}
+              >
+                {/* Options go here */}
+                <option value="">Select</option>
+                <option value="Closed">Closed</option>
+                <option value="Open">Open</option>
               </Form.Control>
             </Form.Group>
 

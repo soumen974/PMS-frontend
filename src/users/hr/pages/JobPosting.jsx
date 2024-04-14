@@ -60,7 +60,6 @@ export default function JobPosting() {
           <input type="text" id="first_name" class=" text-1xl  text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  " placeholder="Location.." required />
           <input type="text" id="first_name" class=" text-1xl  text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  " placeholder="Deadline.." required />
         </ul>
-
       </div>
 
     </div>

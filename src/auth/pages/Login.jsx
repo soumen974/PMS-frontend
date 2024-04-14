@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import Authentication from '../components/Authentication';
+import React, { useEffect, useState } from "react";
+import Authentication from "../components/Authentication";
 import LoginSideImage from "../assets/slide-1-pic.jpg";
 import InappLoader from "../../Loader/InappLoader";
 import Logo from "../../images/CenturionLogo.webp";
@@ -67,14 +67,12 @@ const handleLogin = async (e) => {
   const  EntryWayMessage_SignUp= "Create an account"
   return (
     <>
-    { 
-    
-      isLoading?
+      {isLoading ? (
         <>
-        <InappLoader/>
+          <InappLoader />
         </>
       
-      :
+    ) : (
 
       <div>
         <div className=" grid  place-content-center h-[100vh]   ">
@@ -96,12 +94,10 @@ const handleLogin = async (e) => {
               {message && <div>{message}</div>}
             </div>
             
-
+            </div>
           </div>
         </div>
-      </div>
-      
-      }
+      )}
     </>
-  )
+  );
 }

@@ -49,12 +49,12 @@ const Main = () => {
                                 Jobs
                             </div>
                         </Link>
-                        <Link to="#" className="text-black text-lg mr-4 mb-4 md:mb-0">
+                        <Link to={'/addStudent'} className="text-black text-lg mr-4 mb-4 md:mb-0">
                             <div className='bg-blue-200 border border-black rounded p-3 h-24 w-40 flex flex-col justify-center items-center hover:bg-blue-100'>
                                 Students
                             </div>
                         </Link>
-                        <Link to="#" className="text-black text-lg mr-4 mb-4 md:mb-0">
+                        <Link to={'/addCompany'} className="text-black text-lg mr-4 mb-4 md:mb-0">
                             <div className='bg-blue-200 border border-black rounded p-3 h-24 w-40 flex flex-col justify-center items-center hover:bg-blue-100'>
                                 Companies
                             </div>
