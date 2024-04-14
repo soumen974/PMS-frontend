@@ -20,7 +20,11 @@ import  {AddNewJob}  from './users/admin/pages/AddNewJob';
 import JobsApplied from './users/student/pages/JobsApplied.jsx';
 import AddCompany from './users/admin/pages/AddCompany.jsx';
 import JobDetails from './users/student/pages/JobDetails.jsx';
-
+import OpenJobs from './users/student/pages/OpenJobs.jsx'
+import OpenJobDetails from './users/student/pages/OpenJobDetails.jsx';
+import ApplyJob from './users/student/pages/ApplyJob.jsx';
+// import ApplyJob, { ApplyForJob } from './users/student/pages/ApplyForJob.jsx';
+import { ApplyForJob } from './users/student/pages/ApplyForJob.jsx';
 
 
 function App() {
@@ -33,6 +37,8 @@ function App() {
           <Route path="/Login" element={<Login />} />
           {/* <Route path="/SignUp" element={<SignUp />} /> */}
 
+
+
         {/* Student Links */}
         <Route
           path="/Student"
@@ -42,7 +48,13 @@ function App() {
         </Route>
         <Route path="/Student/Home" element={<StudentHome/>} />
         <Route path="/jobsApplied" element={<JobsApplied/>}/>
-        <Route path="/jobDetails" element={<JobDetails/>}/>
+        {/* <Route path="/jobDetails" element={<JobDetails/>}/> */}
+        <Route path="/jobDetails/:jobId" element={<JobDetails />} />
+        <Route path='/openJobs' element={<OpenJobs/>}/>
+        <Route path='/openJobDetails/:jobId' element={<OpenJobDetails/>}/>
+        <Route path='/applyJob' element={<ApplyJob/>}/>
+        <Route path="/applyForJob" element={<ApplyForJob/>}/>
+       
 
 
         {/* HR Links */}
@@ -54,6 +66,7 @@ function App() {
           <Route path="/HR/account" element={<AccountHr/>} />
           <Route path="/HR/settings" element={<SettingHr/>} />
         </Route>
+
 
         {/* Admin Links */}
         <Route path="/Admin" 

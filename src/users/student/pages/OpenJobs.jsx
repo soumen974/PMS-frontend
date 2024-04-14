@@ -1,43 +1,42 @@
-import React,{useState,useEffect} from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState,useEffect } from 'react'
+import { loginStorage } from '../../../LoginStorage';
+import {Link} from 'react-router-dom';
+import axios from 'axios';
 import Header from '../../../commonCompo/Header';
 import Footer from '../../../auth/components/Footer';
-import { loginStorage } from '../../../LoginStorage';
-import axios from 'axios';
 
-const JobsApplied = () => {
-  const isLoggedIn = loginStorage.details && loginStorage.details.code !== '' && loginStorage.details.code !== undefined;
-  const code = isLoggedIn ? loginStorage.details.code : '';
-  const student_id=isLoggedIn?loginStorage.details.id:'';
-  const [appliedJobs, setAppliedJobs] = useState([]);
-  //console.log(student_id);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(`/api/studentprofile/appliedJobs/${student_id}`);
-        if (response.status === 200 && response.data.length > 0) {
-          setAppliedJobs(response.data);
-        } else {
-          setAppliedJobs([]);
+const OpenJobs = () => {
+    const isLoggedIn = loginStorage.details && loginStorage.details.code !== '' && loginStorage.details.code !== undefined;
+    const code = isLoggedIn ? loginStorage.details.code : '';
+    //const student_id=isLoggedIn?loginStorage.details.id:'';
+    const [opnJobs, setOpenJobs] = useState([]);
+    //console.log(student_id);
+  
+    useEffect(() => {
+      const fetchData = async () => {
+        try {
+          const response = await axios.get(`/api/studentprofile/getAllOpenJobs`);
+          if (response.status === 200 && response.data.length > 0) {
+            setOpenJobs(response.data);
+          } else {
+            setOpenJobs([]);
+          }
+        } catch (error) {
+          console.error('Error fetching applied jobs:', error);
         }
-      } catch (error) {
-        console.error('Error fetching applied jobs:', error);
+      };
+  
+      if (isLoggedIn) {
+        fetchData();
       }
-    };
-
-    if (isLoggedIn) {
-      fetchData();
-    }
-  }, [isLoggedIn, student_id]);
-
+    }, [isLoggedIn]);
   return (
     <>
-    <Header/>
-    <div style={{ maxWidth: '600px', margin: '0 auto', padding: '20px'}}>
-      <h2 style={{ textAlign: 'center', borderBottom: '2px solid #333', paddingBottom: '10px', marginBottom: '20px', fontWeight: 'bold', fontSize: '24px', color: '#333' }}>Jobs Applied</h2>
-      {appliedJobs.length > 0 ? (
-          appliedJobs.map(job => (
+        <Header/>
+        <div style={{ maxWidth: '600px', margin: '0 auto', padding: '20px'}}>
+        <h2 style={{ textAlign: 'center', borderBottom: '2px solid #333', paddingBottom: '10px', marginBottom: '20px', fontWeight: 'bold', fontSize: '24px', color: '#333' }}>Apply Jobs</h2>
+        {opnJobs.length > 0 ? (
+            opnJobs.map(job => (
             <div
               key={job.id}
               style={{
@@ -81,18 +80,19 @@ const JobsApplied = () => {
               onMouseEnter={(e) => e.target.style.backgroundColor = '#0056b3'}
               onMouseLeave={(e) => e.target.style.backgroundColor = '#007bff'}
             >
-              <Link to={`/jobDetails/${job.id}`} className='no-underline text-white'>See More...</Link>
+              {/* <Link to={`/jobDetails/${job.id}`} className='no-underline text-white'>See More...</Link> */}
+              <Link to={`/openJobDetails/${job.id}`} className='no-underline text-white'>See More...</Link>
             </button>
           </div>
         </div>
       ))
     ) : (
-      <p style={{ textAlign: 'center', fontSize: '18px' }}>You have not applied for any jobs yet.</p>
+      <p style={{ textAlign: 'center', fontSize: '18px' }}>No jobs are opened for hiring.</p>
     )}
     </div>
     <Footer/>
     </>
-  );
-};
+  )
+}
 
-export default JobsApplied;
+export default OpenJobs
