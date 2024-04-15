@@ -23,6 +23,10 @@ import JobDetails from './users/student/pages/JobDetails.jsx';
 import OpenJobs from './users/student/pages/OpenJobs.jsx'
 import OpenJobDetails from './users/student/pages/OpenJobDetails.jsx';
 import ApplyJob from './users/student/pages/ApplyJob.jsx';
+import PostedJob from './users/hr/pages/PostedJob.jsx'
+import HR_StudentDetails from './users/hr/pages/HR_StudentDetails.jsx';
+import {PostJob} from './users/hr/pages/PostJob.jsx';
+
 // import ApplyJob, { ApplyForJob } from './users/student/pages/ApplyForJob.jsx';
 import { ApplyForJob } from './users/student/pages/ApplyForJob.jsx';
 
@@ -60,12 +64,15 @@ function App() {
         {/* HR Links */}
         <Route path="/HR" 
           element={<HrLandingLayout/>}
-        >
-          <Route path="/HR/Home" element={<HrHome />} />
+        />
+          <Route path="/HR/Home" element={<HrHome/>} />
           <Route path="/HR/jobposting" element={<JobPosting/>} />
           <Route path="/HR/account" element={<AccountHr/>} />
           <Route path="/HR/settings" element={<SettingHr/>} />
-        </Route>
+          <Route path="/postedJob" element={<PostedJob/>}/>
+          <Route path="/postJob" element={<PostJob/>}/>
+          <Route path="/Hr/studentDetails" element={<HR_StudentDetails/>}/>
+             
 
 
         {/* Admin Links */}
