@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Header from "../../../commonCompo/Header";
 
+
 function ProfileDetail({ label, value, onChange, editMode }) {
   const handleChange = (e) => {
     onChange(label, e.target.value);
@@ -132,25 +133,25 @@ function ProfileDetailsSection() {
     { label: "First Name", value: "RASHMIKANT" },
     { label: "Middle Name", value: "8/5/2002" },
     { label: "Last Name", value: "8/5/2002" },
-    { label: "Email", value: "545" },
+    { label: "Mother's Name", value: "jaklnd" },
     // { label: "Regs.No", value: "210301120110" },
     // { label: "Program", value: "BTECH" },
     // { label: "Semester", value: "6TH" },
     // { label: "Branch", value: "BBSR" },
     // { label: "Campus", value: "AVM@GMAIL.COM" },
-    { label: "DOB", value: "0" },
-    { label: "Gender", value: "0" },
+    { label: "Current Adrress", value: "0" },
+    { label: "CPI", value: "0" },
     { label: "Mobile No", value: "" }, // Empty string for initial value
-    { label: "Alt mob No", value: "" }, // Empty string for initial value
-    { label: "Father's Name", value: "ABC" },
-    { label: "Mother's Name", value: "dfa" },
-    { label: "Current Adrress", value: "dfa" },
-    { label: "Permanent Adrress", value: "dfa" },
     { label: "10th Marks", value: "" }, // Empty string for initial value
-    { label: "12th Marks", value: "" },
+    { label: "CurrentBacklog", value: "ABC" },
+    { label: "Email", value: "dfa" },
+    { label: "DOB", value: "dfa" },
+    { label: "Gender", value: "dfa" },
+    { label: "Father's Name ", value: "akndls" }, // Empty string for initial value
+    { label: "Permanent Adrress", value: "" },
     { label: "Current degree Grade", value: "" },
-    { label: "CPI", value: "" },
-    { label: "CurrentBacklog", value: "0" },
+    { label: "Alt mob No", value: "" },
+    { label: "12th Marks", value: "" },
     { label: "Total Backlog", value: "CSE" },
 
     // Add other data objects here
@@ -242,6 +243,7 @@ function Profile() {
     <div>
       <Header />
       <ProfileDetailsSection />
+   
     </div>
   );
 }
