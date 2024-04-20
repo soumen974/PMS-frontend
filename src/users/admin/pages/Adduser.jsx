@@ -113,12 +113,12 @@ export default function Adduser() {
           <div className="  h-96">
             <form onSubmit={(e) => HandleForm(e)} className='grid gap-5 flex-col justify-center align-center pt-10'>
 
-                   <div>
-                      <label htmlFor="dropdown">User type:</label>
-                      <select id="dropdown" name="usertype" value={usertype}  onChange={(e) => onInputChange(e)}>
-                        <option value="NormalUser">Not Selected</option>
-                        <option value="Student">Student</option>
-                        <option value="HR">HR</option>
+                   <div className='flex rounded-md border border-gray-300 gap-10 justify-between '>
+                      <label className=' p-3' htmlFor="dropdown">User type:</label>
+                      <select className=' p-3 hover:text-blue-400 rounded-md' id="dropdown" name="usertype" value={usertype}  onChange={(e) => onInputChange(e)}>
+                        <option className='text-gray-800 ' value="NormalUser">Not Selected</option>
+                        <option className='text-gray-800'  value="Student">Student</option>
+                        <option className='text-gray-800'  value="HR">HR</option>
                       </select>
                     </div>
 
