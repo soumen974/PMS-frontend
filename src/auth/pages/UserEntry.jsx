@@ -31,14 +31,20 @@ export default function UserEntry() {
           </>
         
         :
-        <div>
-            <Nav/>
-            <Section1/>
+        <>
+        <Nav/>
+        <Section1/>
+        <div className='max-w-screen-xl  items-center justify-between mx-auto px-5 pb-10 space-y-[1vw]'>
+            
+            
             <TopComp/>
             <PlacementGraphs/>
             <Faq/>
-            <Footer/>
+            
          </div>
+         <Footer/>
+        </>
+        
         
       }
       
