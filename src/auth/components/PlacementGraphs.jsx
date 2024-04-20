@@ -100,8 +100,8 @@ export default function PlacementGraphs() {
    
   return (
     <>
-        <div className='p-10 px-[22vw]'>
-            <div className='font-bold text-2xl text-center'>
+        <div className='p-0 lg:px-[vw]'>
+            <div className='font-bold text-2xl text-left text-gray-600'>
                 Placement Record
             </div>
             <Chart {...chartConfig} />

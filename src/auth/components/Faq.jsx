@@ -24,7 +24,9 @@ export default function Faq() {
     
   return (
     <>
-    <div className="max-w-screen-xl  mx-auto p-8 ">
+            <h1 className='font-bold text-2xl  text-gray-600  hover:underline'>FAQ</h1>
+
+    <div className="max-w-screen-xl  mx-auto px-[7vw]  ">
     <h2 >
         <button onClick={Q1Click} type="button" className="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray border border-b-0 border-gray-200 rounded-t-xl focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-800 hover:bg-gray-100 dark:hover:bg-gray-400 gap-3" data-accordion-target="#accordion-collapse-body-1" aria-expanded="true" aria-controls="accordion-collapse-body-1">
         <span>Any question?</span>

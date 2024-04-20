@@ -33,41 +33,41 @@ export default function Section1() {
 
     <div className='relative '>
       {/* Big Box */}
-      <div className='absolute bottom-[-3rem] left-0 right-0 z-20'>
-        <div className=' px-[14vw]  '>
-            <div className='bg-[#3C3C3C] py-10 p-8 rounded-[1.1rem] grid justify-center gap-y-[1.2rem] '>
-                <header className='text-white lg:text-3xl text-center font-bold '><span className='bg-red-700 px-6 text-[0.1rem]'></span>
-                Result of Almost Two Decades of Hardwork,Commitment and Empathy <span className='bg-red-700 px-6 text-[0.1rem]'></span>
+      <div className=' bottom-[-8vw] absolute lg:bottom-[-3.9rem] left-0 right-0 z-20'>
+        <div className=' md:px-[8vw] lg:px-[14vw]  '>
+            <div className='bg-[#3C3C3C]  md:px-[1vw] py-[5vw] md:py-[9vw]  lg:py-10 lg:p-8 md:rounded-[1.1rem] grid justify-center gap-y-[1.2rem] '>
+                <header className='text-white text-[2.5vw] md:text-[1.74vw] lg:text-[1.74vw] text-center font-bold '><span className='bg-red-700 px-[2vw] text-[0.2rem]'></span>
+                Result of Almost Two Decades of Hardwork,Commitment and Empathy <span className='bg-red-700 px-[2vw] text-[0.2rem]'></span>
                 </header>
 
-                <div className=' flex justify-center  md:order-2 space-x-10  '>
+                <div className=' flex justify-center  md:order-2  space-x-[2vw] md:space-x-[3vw]  '>
                     <div className='text-center  '>
-                        <h1 className='text-[#FFD575] lg:text-3xl font-bold '>20,000+</h1>
+                        <h1 className='text-[#FFD575] text-[1.9vw] font-bold '>20,000+</h1>
                         <h5 className='text-white'>Students</h5>
                     </div>
 
                     <div className='text-center '>
-                        <h1 className='text-[#FFD575] lg:text-3xl font-bold '>80+</h1>
+                        <h1 className='text-[#FFD575] text-[1.9vw] font-bold '>80+</h1>
                         <h5 className='text-white'>Courses</h5>
                     </div>
 
                     <div className='text-center '>
-                        <h1 className='text-[#FFD575] lg:text-3xl font-bold '>850+</h1>
+                        <h1 className='text-[#FFD575] text-[1.9vw] font-bold '>850+</h1>
                         <h5 className='text-white'>Events</h5>
                     </div>
 
                     <div className='text-center '>
-                        <h1 className='text-[#FFD575] lg:text-3xl font-bold '>100+</h1>
+                        <h1 className='text-[#FFD575] text-[1.9vw] font-bold '>100+</h1>
                         <h5 className='text-white'>High Profile Visitors</h5>
                     </div>
 
                     <div className='text-center '>
-                        <h1 className='text-[#FFD575] lg:text-3xl font-bold '>12,000+</h1>
+                        <h1 className='text-[#FFD575] text-[1.9vw] font-bold '>12,000+</h1>
                         <h5 className='text-white'>Skill Course Students</h5>
                     </div>
 
                     <div className='text-center '>
-                        <h1 className='text-[#FFD575] lg:text-3xl font-bold '>6,000+</h1>
+                        <h1 className='text-[#FFD575] text-[1.9vw] font-bold '>6,000+</h1>
                         <h5 className='text-white'>Placements</h5>
                     </div>
                 </div>
@@ -92,13 +92,13 @@ export default function Section1() {
         <div className=' p-6 pb-0 pt-[5.9rem] overflow-hidden z-10 '>
                 <Slider {...settings}>
                     <div >
-                        <img className=' object-cover w-full  h-[35vw] ' src={Slide01Image} alt="" />
+                        <img className=' object-cover w-full h-[88vw] md:h-[55vw] lg:h-[35vw]' src={Slide01Image} alt="" />
                     </div>
                     <div>
-                        <img className=' object-cover w-full  h-[35vw] ' src={Slide02Image} alt="" />
+                        <img className=' object-cover w-full h-[88vw] md:h-[55vw] lg:h-[35vw] ' src={Slide02Image} alt="" />
                     </div>
                     <div>
-                        <img className=' object-cover w-full   h-[35vw]' src={Slide03Image} alt="" />
+                        <img className=' object-cover w-full  h-[88vw] md:h-[55vw] lg:h-[35vw]' src={Slide03Image} alt="" />
                     </div>
                 </Slider>
         </div>
