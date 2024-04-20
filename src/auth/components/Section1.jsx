@@ -89,7 +89,7 @@ export default function Section1() {
                 </div>
                  </div>
                </div>                 :
-        <div className=' p-6 pb-0 pt-[5.9rem] overflow-hidden z-10 '>
+        <div className=' md:p-4 md:pb-0 p-0  md:pt-[5.4rem] overflow-hidden z-10 '>
                 <Slider {...settings}>
                     <div >
                         <img className=' object-cover w-full h-[88vw] md:h-[55vw] lg:h-[35vw]' src={Slide01Image} alt="" />
