@@ -15,6 +15,7 @@ import AddStudent from './users/admin/pages/AddStudent';
 import JobPosting from './users/hr/pages/JobPosting';
 import AccountHr from './users/hr/pages/AccountHr';
 import SettingHr from './users/hr/pages/SettingHr';
+
 import Jobs from './users/admin/pages/Jobs';
 import  {AddNewJob}  from './users/admin/pages/AddNewJob';
 import JobsApplied from './users/student/pages/JobsApplied.jsx';
@@ -26,6 +27,13 @@ import ApplyJob from './users/student/pages/ApplyJob.jsx';
 import PostedJob from './users/hr/pages/PostedJob.jsx'
 import HR_StudentDetails from './users/hr/pages/HR_StudentDetails.jsx';
 import {PostJob} from './users/hr/pages/PostJob.jsx';
+
+import Apply from './users/student/pages/Apply';
+import Setting from './users/student/pages/Setting';
+import Students from './users/admin/pages/Students';
+import Applicants from './users/admin/pages/Applicants';
+import Adduser from './users/admin/pages/Adduser';
+
 
 // import ApplyJob, { ApplyForJob } from './users/student/pages/ApplyForJob.jsx';
 import { ApplyForJob } from './users/student/pages/ApplyForJob.jsx';
@@ -78,6 +86,7 @@ function App() {
         {/* Admin Links */}
         <Route path="/Admin" 
           element={<AdminLandingLayout/>}
+
         />
            <Route path="/Admin/Home" element={<AdminHome/>} />
            <Route path="/Admin/Companies" element={<Companies/>} />
@@ -85,6 +94,16 @@ function App() {
            <Route path='/addNewJob' element={<AddNewJob/>}/>
            <Route path='/addStudent' element={<AddStudent/>}/>
            <Route path='/addCompany' element={<AddCompany/>}/>
+
+        >
+           <Route path="/Admin/home" element={<AdminHome/>} />
+           <Route path="/Admin/Adduser" element={<Adduser/>} />
+           <Route path="/Admin/Students" element={<Students/>} />
+           <Route path="/Admin/Companies" element={<Companies/>} />
+           <Route path="/Admin/Applicants" element={<Applicants/>} />
+
+
+
 
        
         <Route path="/profile" element={<Profile/>}></Route>
