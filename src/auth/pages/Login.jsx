@@ -30,8 +30,8 @@ export default function Login() {
       <div>
         <div className=" grid  place-content-center h-[100vh]   ">
           
-          <div className=' md:grid rounded gap-3 bg-white grid-cols-[70%,30%] shadow-lg shadow-black-500/50 md:pr-8 p-10 md:p-0'>
-            <img className='rounded w-[50rem] md:pr-2' src={LoginSideImage} alt="" />
+          <div className=' md:grid rounded gap-3 bg-white grid-cols-[70%,30%] shadow-lg shadow-black-500/50 md:pr-8 p-[10vw] md:p-0 '>
+            <img className='hidden md:block rounded w-[50rem]  md:pr-2' src={LoginSideImage} alt="" />
             <Authentication LinkButtonName={'Login'} Links={'/SignUp'} EntryWayMessage={EntryWayMessage_SignUp} />
 
           </div>

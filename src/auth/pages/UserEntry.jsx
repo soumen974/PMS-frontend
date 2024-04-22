@@ -34,7 +34,7 @@ export default function UserEntry() {
         <>
         <Nav/>
         <Section1/>
-        <div className='max-w-screen-xl  items-center justify-between mx-auto px-5 pb-10 space-y-[1vw]'>
+        <div className='max-w-screen-2xl  items-center justify-between mx-auto px-5 pb-10 space-y-[1vw]'>
             
             
             <TopComp/>
